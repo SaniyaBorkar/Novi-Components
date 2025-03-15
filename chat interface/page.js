@@ -28,10 +28,8 @@ import japanese_romantic_male from "@/photos/japanese_romantic_male.jpeg";
 import japanese_romantic_female from "@/photos/japanese_romantic_female.jpeg";
 
 import BotCustomization from "@/components/CoustomBot";
-import ShinyButton from "@/components/ui/shiny-button";
 import PlayAudio from "@/components/PlayAudio";
 import { FloatingDockDemo } from "@/components/BottomMenuBar";
-import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Input } from "@/components/ui/input";
 
 const bot_details = [
@@ -867,9 +865,9 @@ export default function SidebarDemo() {
   return (
     <div
       className={cn(
-        " flex flex-col md:flex-row bg-gray-100 dark:bg-neutral-800 w-full flex-1 border border-neutral-200 dark:border-neutral-700 overflow-hidden",
+        "flex flex-col md:flex-row bg-gray-100 dark:bg-gray-100 w-full flex-1  overflow-hidden",
         // for your use case, use `h-screen` instead of `h-[60vh]`
-        "h-screen"
+        "h-screen bg-white shadow-lg"
       )}>
       <Sidebar open={open} setOpen={setOpen} animate={false}>
         <SidebarBody className="justify-between gap-5">
@@ -880,15 +878,14 @@ export default function SidebarDemo() {
                 selectedBotDetails={selectedBotDetails}
                 onUpdate={handleBotCustomization}
               />
-              <p className="text-sm mt-5 text-black/60 ">
+              <p className="text-sm text-black/60 mt-3 dark:black/60">
                 {selectedBotDetails.quote}
               </p>
               <div>
-              <button type="submit" className="mt-3 p-5 py-2 w-full
-              hover:opacity-60   cursor-pointer  md: bg-gradient-to-r  from-purple-400/80 via-pink-400/80 to-orange-400/80 hover:from-purple-400/90 hover:via-pink-400/90 hover:to-orange-400/90 text-white rounded-full flex justify-center items-center gap-2 transition-all backdrop-blur-sm border border-white/20 shadow-[0_4px_12px_0_rgba(255,255,255,0.2)]" 
-              onClick={() => window.open('/diary', '_blank')}>
-       Add Diary
-  </button>
+                <button type="submit" className="mt-3 p-5 py-2 w-full hover:opacity-60   cursor-pointer  md: bg-gradient-to-r  from-purple-400/80 via-pink-400/80 to-orange-400/80 hover:from-purple-400/90 hover:via-pink-400/90 hover:to-orange-400/90 text-white rounded-full flex justify-center items-center gap-2 transition-all backdrop-blur-sm border border-white/20 shadow-[0_4px_12px_0_rgba(255,255,255,0.2)]" 
+                onClick={() => window.open('/diary', '_blank')}>
+                   Add Diary
+                </button>
               </div>
               {/* <div className="w-full max-w-3xl mt-3">
                 <h2 className="font-bold">Personality</h2>
@@ -950,7 +947,7 @@ export default function SidebarDemo() {
                 </ShinyButton> */}
               </div>
             </div>
-            {/* <FloatingDockDemo /> */}
+            <FloatingDockDemo />
           </div>
         </SidebarBody>
       </Sidebar>
@@ -965,11 +962,11 @@ export const Logo = () => {
       href="#"
       className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20">
       <div
-        className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
+        className="h-5 w-6 bg-black/60 dark:bg-black/60 rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
       <motion.span
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="font-medium text-black dark:text-white whitespace-pre">
+        className="font-medium text-black/60 dark:text-black/80 whitespace-pre">
         Novi AI
       </motion.span>
     </Link>)
@@ -1359,9 +1356,9 @@ const Dashboard = ({ editablePrompts, clearChatCalled, setClearChatCalled }) => 
     <div className="flex justify-start my-4">
       <div className="px-4 py-2 rounded-2xl">
         <div className="flex space-x-1 items-center">
-          <div className="w-2 h-2 bg-white rounded-full animate-bounce" />
-          <div className="w-2 h-2 bg-white rounded-full animate-bounce [animation-delay:0.2s]" />
-          <div className="w-2 h-2 bg-white rounded-full animate-bounce [animation-delay:0.4s]" />
+          <div className="w-2 h-2 bg-[#C084FC] rounded-full animate-bounce" />
+          <div className="w-2 h-2 bg-[#C084FC] rounded-full animate-bounce [animation-delay:0.2s]" />
+          <div className="w-2 h-2 bg-[#C084FC] rounded-full animate-bounce [animation-delay:0.4s]" />
         </div>
       </div>
     </div>
@@ -1369,13 +1366,11 @@ const Dashboard = ({ editablePrompts, clearChatCalled, setClearChatCalled }) => 
 
   return (
     <div className="flex flex-col flex-1 bg-gray-100 border border-neutral-200 md:h-full md:mt-0 relative overflow-hidden">
-  
-  {/* Background Blobs - Wrap inside a relative div */}
-  <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-    <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-pink-400 rounded-full blur-[120px] opacity-50"></div>
-    <div className="absolute top-1/3 right-1/4 w-[350px] h-[350px] bg-orange-300 rounded-full blur-[100px] opacity-60"></div>
-    <div className="absolute bottom-1/4 left-1/3 w-[450px] h-[450px] bg-red-200 rounded-full blur-[140px] opacity-50"></div>
-  </div>
+        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-pink-400 rounded-full blur-[120px] opacity-50"></div>
+          <div className="absolute top-1/3 right-1/4 w-[350px] h-[350px] bg-orange-300 rounded-full blur-[100px] opacity-60"></div>
+          <div className="absolute bottom-1/4 left-1/3 w-[450px] h-[450px] bg-red-200 rounded-full blur-[140px] opacity-50"></div>
+        </div>
       <ScrollArea className="flex-1">
         <div className="px-1 md:px-2">
           {messages.map((msg, index) => (
@@ -1384,11 +1379,11 @@ const Dashboard = ({ editablePrompts, clearChatCalled, setClearChatCalled }) => 
                 <div className="flex flex-row items-center gap-2">
                   <div className={`px-4 py-2 rounded-2xl ${msg.sender === 'bot'
                     ? 'bg-white/20 border border-white/20 backdrop-blur-sm shadow-md rounded-6xl text-gray-900 placeholder-gray-200'
-                    : 'bg-white/20 border border-white/20 backdrop-blur-sm shadow-md rounded-6xl text-gray-900 placeholder-gray-200'
+                    : 'bg-purple-400/80 border border-white/20 backdrop-blur-sm shadow-md rounded-6xl text-white placeholder-gray-200'
                     } w-full text-left`}>
                     {msg.sender === 'bot' ? (
                       <>
-                        <motion.p className="text-gray-700">
+                        <motion.p className="text-gray-700 dark:text-gray-700">
                           {msg.text.split(" ").map((word, i) => (
                             <motion.span
                               key={i}
@@ -1409,7 +1404,7 @@ const Dashboard = ({ editablePrompts, clearChatCalled, setClearChatCalled }) => 
                   {msg.sender === 'bot' && <PlayAudio text={msg.text} bot_id={selectedBotId} />}
                 </div>
                 <div className="flex flex-row justify-end ">
-                  <span className={`text-xs text-pink-600 text-left mt-[7px] ${msg.sender == 'user' ? "mr-3" : ""}`}>{msg?.timestamp}</span>
+                  <span className={`text-xs text-neutral-700 text-left mt-[7px] ${msg.sender == 'user' ? "mr-3" : ""}`}>{msg?.timestamp}</span>
                   {/* {
                     msg.sender === 'user' && (
                       <div className="mt-[5px] mr-2">
@@ -1426,18 +1421,18 @@ const Dashboard = ({ editablePrompts, clearChatCalled, setClearChatCalled }) => 
                             :
                             msg.feedback === "" ? (
                               <>
-                                <ThumbsUp className="cursor-pointer" size={18} onClick={() => handleFeedback("like", msg.id)} />
-                                <ThumbsDown className="cursor-pointer" size={18} onClick={() => handleFeedback("dislike", msg.id)} />
+                                <ThumbsUp className="cursor-pointer text-black/30" size={18} onClick={() => handleFeedback("like", msg.id)} />
+                                <ThumbsDown className="cursor-pointer text-black/30" size={18} onClick={() => handleFeedback("dislike", msg.id)} />
                               </>
                             ) : msg.feedback === "like" ? (
                               <>
-                                <IconThumbUpFilled size={22} className="text-purple-500 mt-[-2px]" />
-                                <ThumbsDown className="cursor-pointer" size={18} onClick={() => handleFeedback("dislike", msg.id)} />
+                                <IconThumbUpFilled size={22} className="text-purple-400/100 mt-[-2px]" />
+                                <ThumbsDown className="cursor-pointer text-black/30" size={18} onClick={() => handleFeedback("dislike", msg.id)} />
                               </>
                             ) : msg.feedback === "dislike" ? (
                               <>
-                                <ThumbsUp className="cursor-pointer" size={18} onClick={() => handleFeedback("like", msg.id)} />
-                                <IconThumbDownFilled size={22} className="text-purple-500" />
+                                <ThumbsUp className="cursor-pointer text-black/30" size={18} onClick={() => handleFeedback("like", msg.id)} />
+                                <IconThumbDownFilled size={22} className="text-purple-400/100" />
                               </>
                             ) : <></>}
                       </div>
@@ -1459,15 +1454,13 @@ const Dashboard = ({ editablePrompts, clearChatCalled, setClearChatCalled }) => 
           className="flex-1 p-[22px] outline-none md:mr-4 mr-2 bg-white/30 border border-white/20 backdrop-blur-md shadow-md rounded-full text-gray-900 placeholder-gray-200"
           placeholder="Type your message..."
         />
-        <button type="submit" className="p-5 py-2
-              hover:opacity-60   cursor-pointer  md: bg-gradient-to-r  from-purple-400/80 via-pink-400/80 to-orange-400/80 hover:from-purple-400/90 hover:via-pink-400/90 hover:to-orange-400/90 text-white rounded-full flex justify-center items-center gap-2 transition-all backdrop-blur-sm border border-white/20 shadow-[0_4px_12px_0_rgba(255,255,255,0.2)]" 
-              >
-    Send
-  </button>
+        <button type="submit" className="p-5 py-2 hover:opacity-60   cursor-pointer  md: bg-gradient-to-r  from-purple-400/80 via-pink-400/80 to-orange-400/80 hover:from-purple-400/90 hover:via-pink-400/90 hover:to-orange-400/90 text-white rounded-full flex justify-center items-center gap-2 transition-all backdrop-blur-sm border border-white/20 shadow-[0_4px_12px_0_rgba(255,255,255,0.2)]" >
+          Send
+        </button>
       </form>
       <p className="text-xs text-center py-2 text-gray-900">
-  Novi can make mistakes, it’s constantly learning from you, please be kind!!
-</p>
+        Novi can make mistakes, it’s constantly learning from you, please be kind!!
+      </p>
     </div>
   );
 };
